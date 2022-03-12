@@ -1,0 +1,48 @@
+<%= render 'devise/shared/header'%>
+
+<div class='flex items-center justify-center text-2xl'>
+  <span class='text-2xl font-medium'>Sign In</span>
+</div>
+
+<div class='flex justify-center'>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'w-2/5'}) do |f| %>
+    
+    <div class="mt-4 max-w-md mx-auto">
+      <div class="grid grid-cols-1 gap-6">
+        <label class="block">
+          <%= f.text_field :email,
+              class: 'mt-1 block w-full rounded-2xl border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              placeholder: 'Enter your email',
+              autofocus: true,
+              autocomplete: 'email'
+          %>
+        </label>
+      </div>
+    </div>
+
+    <div class="mt-4 max-w-md mx-auto">
+      <div class="grid grid-cols-1 gap-6">
+        <label class="block">
+          <%= f.password_field :password,
+              class: 'mt-1 block w-full rounded-2xl border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50',
+              placeholder: 'Enter your password',
+              autofocus: true,
+              autocomplete: 'current-password'
+          %>
+        </label>
+      </div>
+    </div>
+
+    <div class="mt-4 max-w-md mx-auto">
+      <div class="grid grid-cols-1 gap-6">
+        <label class="block">
+          <%= button_tag type: 'submit', class: "flex justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl w-full" do %>
+            <span>Submit </span><svg class="w-6 h-6 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          <% end %>
+        </label>
+      </div>
+    </div>
+
+  </div>
+<% end %>
+
