@@ -3,8 +3,8 @@
 Rails.application.routes.draw do
   root 'users#show'
   devise_for :users, controllers: {
-    sessions: 'user/sessions',
-    registrations: 'user/registrations'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   resources :users, only: [:show]
   resources :messages
