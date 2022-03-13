@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Follow these steps
 
-Things you may want to cover:
 
-* Ruby version
+* Clone the code
 
-* System dependencies
+* Run ```bundle install```
 
-* Configuration
+* Run ```rails db:crete and rails db:migrate```
 
-* Database creation
+* Run ```./bin/webpack-dev-server```
 
-* Database initialization
+* Run ```bin/dev```
 
-* How to run the test suite
+* Sign up url ```localhost:3000/users/sign_up```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Sign in url ```localhost:3000/users/sign_in```
 
-* Deployment instructions
-
-* ...
+* Create multiple users and chat
