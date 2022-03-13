@@ -11,3 +11,23 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  javascript_()
+})
+
+document.addEventListener('turbolinks:load', function() {
+  javascript_()
+})
+
+let javascript_ = () => {
+  var objDiv = document.querySelector(".messages");
+  objDiv.scrollTop = objDiv.scrollHeight;
+
+  document.querySelector('#submit-message').addEventListener('click', function(e){
+    e.preventDefault()
+    document.querySelector('#send-message-form').submit()
+    document.querySelector('#message_message').value = ''
+  })
+}

@@ -6,20 +6,25 @@
       <span class='mx-2 font-medium'><%= current_user.name %></span>
     </div>
 
-    <div class='bg-cyan-100 my-2 flex flex-col'>
+    <div class='bg-cyan-100 mt-2 flex flex-col h-4/5'>
       
-      <%- @users.each do |user|%>
-        <%= render 'user_card', user: user %>
-      <%- end %>
-
-      <%= link_to destroy_user_session_path, { method: :delete } do %>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-        </svg>
+      <%- if @users.present? %>
+        <%- @users.each do |user|%>
+          <%= render 'user_card', user: user , selected_user: @selected_user %>
+        <%- end %>
+      <%- else %>
+        <span>Users doesn't exit to chat</span>
       <%- end %>
     </div>
+    <div class='bg-cyan-100 h-16 flex items-center pl-4 border-y-slate-200 border'>
+      <%= link_to destroy_user_session_path, { method: :delete } do %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+        <%- end %>
+    </div>
   </div>
-  <div class='grid-cols-9 h-screen w-9/12'>
+  <div class='grid-cols-9 h-screen w-9/12 flex justify-center'>
     <%= render 'chat', user: @selected_user%>
   </div>
 </div>

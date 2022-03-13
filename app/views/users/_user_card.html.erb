@@ -1,17 +1,18 @@
 <%= link_to user_path(user) do %>
   <div class='flex w-full justify-center'>
-    <div class='w-full flex justify-between'>
+    <%- selected_user_classes = 'rounded-2xl bg-blue-400' if user.id == selected_user.id %>
+    <div class="w-full flex justify-between m-2 p-2 <%= selected_user_classes%>">
       <div>
-        <div class='bg-cyan-100 h-20 flex items-center justify-start px-4'>
+        <div class='h-20 flex items-center justify-start px-4'>
           <%= image_tag('avatar.png', alt: user.name, class: 'w-16 h-16 rounded-full') %>
           <div>
             <span class='mx-2 font-medium'><%= user.name %></span><br>
-            <span class='mx-2 text-xs opacity-50'>Dumy text message</span>
+            <span class='mx-2 text-xs opacity-50 truncate'><%= current_user.user_last_message(user)&.message %></span>
           </div>
         </div>
       </div>
       <div>
-        <span class='text-xs opacity-50'> 12/12/2020 </span>
+        <span class='text-xs opacity-50'> <%= current_user.user_last_message(user)&.created_at&.strftime('%d/%m/%Y') %> </span>
       </div>
     </div>
   </div>
