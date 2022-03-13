@@ -7,7 +7,7 @@ Follow these steps
 
 * Run ```bundle install```
 
-* Run ```rails db:crete and rails db:migrate```
+* Run ```rails db:create and rails db:migrate```
 
 * Run ```./bin/webpack-dev-server```
 
