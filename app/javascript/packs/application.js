@@ -13,9 +13,9 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  javascript_()
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   javascript_()
+// })
 
 document.addEventListener('turbolinks:load', function() {
   javascript_()
